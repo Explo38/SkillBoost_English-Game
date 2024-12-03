@@ -1,0 +1,38 @@
+/* ToggleSwitch.css */
+.switch-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.switch-button {
+  background: #ddd;
+  border: none;
+  border-radius: 30px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 150px;
+}
+
+.switch-button .switch-label {
+  z-index: 1;
+  color: #333;
+  transition: all 0.3s ease;
+}
+
+.switch-container.active .switch-button {
+  background: #4CAF50; /* Couleur verte lorsqu'activé */
+}
+
+.switch-container.active .switch-button .switch-label {
+  color: white;
+  transform: translateX(30px); /* Déplace le texte vers la droite lorsqu'activé */
+}
