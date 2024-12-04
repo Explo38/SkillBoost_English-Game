@@ -3,6 +3,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 2em; /* Ajoute de l'espace au-dessus du switch */
 }
 
 .switch-button {
@@ -35,4 +36,13 @@
 .switch-container.active .switch-button .switch-label {
   color: white;
   transform: translateX(30px); /* Déplace le texte vers la droite lorsqu'activé */
+}
+
+/* En version mobile : réduction de la taille du bouton */
+@media (max-width: 600px) {
+  .switch-button {
+    width: 120px;
+    padding: 8px 16px;
+    font-size: 14px;
+  }
 }

@@ -17,26 +17,21 @@
     border-radius: .1em;
   }
   
-  .top,
-  .bottom,
-  .flip-card .top-flip,
-  .flip-card .bottom-flip {
+  .top, .bottom, .flip-card .top-flip, .flip-card .bottom-flip {
     height: .75em;
     line-height: 1;
     padding: .25em;
     overflow: hidden;
   }
   
-  .top,
-  .flip-card .top-flip {
+  .top, .flip-card .top-flip {
     background-color: #f7f7f7;
     border-top-right-radius: .1em;
     border-top-left-radius: .1em;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   }
   
-  .bottom,
-  .flip-card .bottom-flip {
+  .bottom, .flip-card .bottom-flip {
     background-color: white;
     display: flex;
     align-items: flex-end;
@@ -74,8 +69,9 @@
   
   .container {
     display: flex;
-    gap: .5em;
+    gap: 1em;
     justify-content: center;
+    align-items: center; /* Centrer tout sur une même ligne */
   }
   
   .container-segment {
@@ -92,5 +88,147 @@
   
   .segment-title {
     font-size: 1rem;
+  }
+  
+  /* Nouveau style pour les labels */
+  .timer-label {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #de4848;
+    margin-left: 0.5em;
+  }
+  
+  /* Nouveau style pour les boutons */
+  button {
+    font-size: 1rem;
+    padding: 0.5em 1em;
+    background-color: #de4848;
+    color: white;
+    border: none;
+    border-radius: 0.3em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 150px;
+    margin-bottom: 1em;
+    display: flex;
+    justify-content: center; /* Centrer les boutons horizontalement */
+    gap: 1em;
+  }
+  
+  button:hover {
+    background-color: #c13a3a;
+  }
+  
+  button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  /* Conteneur principal du timer */
+  .timer-segment {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centre le contenu des segments */
+    gap: 1em;
+    margin-bottom: 2em; /* Ajouter de l'espace sous le timer */
+  }
+  
+  /* Nouveau conteneur pour les minutes et secondes */
+  .timer-time {
+    display: flex;
+    gap: 0.5em; /* Espacement entre minutes et secondes */
+    font-size: 3rem; /* Augmenter la taille des chiffres */
+    color: #de4848; /* Couleur des chiffres */
+  }
+  
+  /* Conteneur des boutons */
+  .buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+    width: 100%; /* Prend toute la largeur disponible */
+    margin-top: 0.3em; /* Espacement pour donner de l'air aux boutons */
+  }
+  
+  /* Les boutons eux-mêmes */
+  button {
+    font-size: 1rem;
+    padding: 0.5em 1em;
+    background-color: #de4848;
+    color: white;
+    border: none;
+    border-radius: 0.3em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 150px;
+    margin-bottom: 1em;
+  }
+  
+  button:hover {
+    background-color: #c13a3a;
+  }
+  
+  button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  /* RESPONSIVE: Adaptation pour les écrans de moins de 768px */
+  @media screen and (max-width: 768px) {
+    *, *::after, *::before {
+      font-size: 1.75rem; /* Réduire la taille des polices */
+    }
+  
+    .container {
+      flex-direction: column; /* Empiler les éléments dans la colonne */
+      gap: 1.5em; /* Augmenter l'espacement entre les éléments */
+    }
+  
+    .container-segment {
+      gap: 0.5em; /* Espacer un peu plus les éléments à l'intérieur de chaque segment */
+    }
+  
+    .timer-time {
+      font-size: 2.5rem; /* Réduire la taille des chiffres pour les écrans moyens */
+      gap: 1em; /* Augmenter l'espacement entre les minutes et secondes */
+    }
+  
+    .timer-segment {
+      margin-bottom: 1em; /* Espacer un peu plus sous le timer */
+    }
+  
+    .buttons {
+      flex-direction: column; /* Empiler les boutons */
+      gap: 0.5em; /* Espacer les boutons */
+    }
+  
+    button {
+      width: 100%; /* Largeur complète pour les boutons sur les petits écrans */
+    }
+  }
+  
+  /* RESPONSIVE: Adaptation pour les écrans de moins de 480px */
+  @media screen and (max-width: 480px) {
+    *, *::after, *::before {
+      font-size: 1.5rem; /* Réduire encore plus la taille des polices */
+    }
+  
+    .container {
+      gap: 1em; /* Réduire l'espacement entre les éléments */
+    }
+  
+    .timer-time {
+      font-size: 2rem; /* Réduire la taille des chiffres encore plus */
+      gap: 1em; /* Espacer davantage les minutes et secondes */
+    }
+  
+    .buttons {
+      gap: 0.5em; /* Garder un espacement raisonnable entre les boutons */
+    }
+  
+    button {
+      width: 90%; /* Boutons plus larges sur les très petits écrans */
+      font-size: 0.9rem; /* Réduire la taille du texte dans les boutons */
+    }
   }
   
