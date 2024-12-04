@@ -2,14 +2,14 @@
   "compilerOptions": {
     "target": "es5",
     "lib": ["dom", "es2015"],
-    "jsx": "react", // Ajout de la prise en charge du JSX
+    "jsx": "react",
     "strict": true,
     "moduleResolution": "node",
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
-    "composite": true,  // Important pour gérer les projets composites
+    "composite": true,
     "module": "commonjs"
   },
   "include": [
