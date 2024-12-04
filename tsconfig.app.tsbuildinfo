@@ -1,1 +1,1 @@
-{"root":["./src/app.tsx","./src/main.tsx","./src/vite-env.d.ts","./src/components/rules/rules.tsx","./src/components/timer/timer.tsx","./src/components/toggleswitch/toggleswitch.tsx"],"version":"5.6.3"}
+{"root":["./src/app.tsx","./src/main.tsx","./src/components/rules/rules.tsx","./src/components/timer/timer.tsx","./src/components/toggleswitch/toggleswitch.tsx","./src/vite-env.d.ts"],"errors":true,"version":"5.6.3"}

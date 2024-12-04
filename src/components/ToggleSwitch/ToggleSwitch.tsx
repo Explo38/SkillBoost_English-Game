@@ -1,22 +1,24 @@
-// src/components/ToggleSwitch/ToggleSwitch.tsx
-import React from "react";
+import React, { useState } from 'react';
 
-type ToggleSwitchProps = {
-  onChange: (isChecked: boolean) => void; // Fonction pour gérer le changement d'état
-  isChecked: boolean; // L'état actuel du switch (activé ou non)
-};
+const ToggleSwitch: React.FC = () => {
+  const [checked, setChecked] = useState(false);
 
-const ToggleSwitch: React.FC<ToggleSwitchProps> = ({ onChange, isChecked }) => {
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setChecked(event.target.checked);
+  };
+
   return (
-    <label className="toggle-switch">
-      <input
-        type="checkbox"
-        checked={isChecked}
-        onChange={(e) => onChange(e.target.checked)} // On appelle la fonction onChange quand l'utilisateur change le switch
-      />
-      <span className="slider"></span> {/* Tu peux ajouter ici un design pour le switch */}
-    </label>
+    <div>
+      <label>
+        Toggle Switch
+        <input
+          type="checkbox"
+          checked={checked}
+          onChange={handleChange}
+        />
+      </label>
+    </div>
   );
-};
+}
 
 export default ToggleSwitch;

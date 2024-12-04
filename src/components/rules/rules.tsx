@@ -1,14 +1,12 @@
-import "./Rules.css";
+import React from 'react';
 
-const Rules = () => {
+const Rules: React.FC = () => {
   return (
-    <div className="rules-container">
-      <h1>Rules of the Game</h1>
-      <p>
-        Voici les règles du jeu : ... (Décris ici les règles du jeu de façon concise)
-      </p>
+    <div>
+      <h1>Game Rules</h1>
+      <p>Here are the game rules...</p>
     </div>
   );
-};
+}
 
 export default Rules;
