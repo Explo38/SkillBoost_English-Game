@@ -1,47 +1,22 @@
-import React, { useState } from "react";
-import ToggleSwitch from "./ToggleSwitch"; // Import du ToggleSwitch
-import "./App.css"; // Import du fichier CSS
+// src/components/ToggleSwitch/ToggleSwitch.tsx
+import React from "react";
 
-const App: React.FC = () => {
-  const [isTimer, setIsTimer] = useState(true); // État pour choisir entre Timer et Rules
+type ToggleSwitchProps = {
+  onChange: (isChecked: boolean) => void; // Fonction pour gérer le changement d'état
+  isChecked: boolean; // L'état actuel du switch (activé ou non)
+};
 
-  const handleSwitchChange = (isChecked: boolean) => {
-    setIsTimer(isChecked); // Mettre à jour l'état en fonction du switch
-  };
-
+const ToggleSwitch: React.FC<ToggleSwitchProps> = ({ onChange, isChecked }) => {
   return (
-    <div className="app-container">
-      {/* Bouton Switch au-dessus du timer */}
-      <ToggleSwitch onChange={handleSwitchChange} isChecked={isTimer} />
-
-      {/* Affichage conditionnel du timer ou des règles */}
-      <div className="content-container">
-        {isTimer ? (
-          <div className="timer-segment">
-            {/* Ton code de timer ici */}
-            <div className="timer-time">
-              <span>00</span>:<span>00</span>
-            </div>
-            <div className="buttons">
-              <button>Start</button>
-              <button>Pause</button>
-            </div>
-          </div>
-        ) : (
-          <div className="rules">
-            <h2>Règles du jeu</h2>
-            <p>Voici les règles du jeu...</p>
-            {/* Affiche tes règles ici */}
-            <ul>
-              <li>Règle 1 : ...</li>
-              <li>Règle 2 : ...</li>
-              <li>Règle 3 : ...</li>
-            </ul>
-          </div>
-        )}
-      </div>
-    </div>
+    <label className="toggle-switch">
+      <input
+        type="checkbox"
+        checked={isChecked}
+        onChange={(e) => onChange(e.target.checked)} // On appelle la fonction onChange quand l'utilisateur change le switch
+      />
+      <span className="slider"></span> {/* Tu peux ajouter ici un design pour le switch */}
+    </label>
   );
 };
 
-export default App;
+export default ToggleSwitch;
