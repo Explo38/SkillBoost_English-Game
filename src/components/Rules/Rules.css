@@ -6,7 +6,6 @@
   height: 100vh; /* Remplir toute la hauteur de la vue */
   padding: 20px;
   overflow: hidden; /* Empêche le scroll global */
-  background-color: #1b1b1b; /* Fond sombre pour mieux faire ressortir les éléments */
 }
 
 /* Container des règles */
