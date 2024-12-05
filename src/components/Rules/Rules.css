@@ -1,3 +1,18 @@
+/* Container des règles */
+.rules-container {
+  text-align: left; /* Aligne tout le texte à gauche */
+  width: 80%; 
+  max-height: 60vh; 
+  padding: 30px;
+  border: 3px solid #9b4d96; 
+  border-radius: 12px;
+  background-color: #5a1f5d;
+  box-shadow: 0 0 15px 5px rgba(138, 43, 226, 0.8);
+  overflow-y: auto; 
+  animation: neonGlow 1.5s ease-in-out infinite;
+  margin-top: 15%;
+}
+
 /* Wrapper autour de la rules-container pour le centrage */
 .rules-wrapper {
   display: flex;
@@ -8,73 +23,44 @@
   overflow: hidden; /* Empêche le scroll global */
 }
 
-/* Container des règles */
-.rules-container {
-  text-align: center;
-  width: 70%; /* Réduit la largeur de la carte */
-  max-height: 70vh; /* Limite la hauteur à 70% de la fenêtre */
-  padding: 30px;
-  border: 3px solid #9b4d96; /* Bordure colorée pour accentuer */
-  border-radius: 12px;
-  background-color: #5a1f5d;
-  box-shadow: 0 0 15px 5px rgba(138, 43, 226, 0.8);
-  overflow-y: auto; /* Permet le scroll vertical uniquement dans la carte */
-  animation: neonGlow 1.5s ease-in-out infinite;
-}
-
 /* Titre principal */
 .rules-container h1 {
-  font-size: 2.2rem; /* Taille uniforme pour les titres principaux */
+  font-size: 1rem; /* Taille réduite du titre */
   color: #e6e6e6;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
   font-weight: bold; /* Mettre en gras */
-  text-transform: uppercase; /* Texte en majuscules */
-  letter-spacing: 2px; /* Espacement des lettres */
-  text-shadow: 0px 0px 8px rgba(138, 43, 226, 1); /* Ombre portée */
+  text-transform: uppercase;
 }
 
 /* Sous-titres */
 .rules-container h2 {
-  font-size: 1.6rem; /* Taille uniforme pour tous les sous-titres */
-  color: #f1f1f1; /* Couleur plus claire */
-  margin: 12px 0;
-  font-weight: semi-bold;
-  text-shadow: 0px 0px 5px rgba(138, 43, 226, 0.7); /* Ombre légère */
+  font-size: 0.8rem; /* Taille réduite pour les sous-titres */
+  color: #f1f1f1;
+  margin-top: 10px;
+  font-weight: normal;
 }
 
 /* Texte des règles (paragraphes) */
 .rules-container p {
-  font-size: 1.1rem; /* Taille de texte uniforme */
+  font-size: 0.5rem; /* Réduit la taille du texte */
   color: #dcdcdc;
-  line-height: 1.6; /* Amélioration de la lisibilité */
-  margin-bottom: 20px; /* Espacement entre les paragraphes */
-  font-family: 'Arial', sans-serif; /* Police sans-serif */
-  text-align: justify; /* Justifier le texte */
-  text-shadow: 0px 0px 3px rgba(138, 43, 226, 0.5); /* Ombre discrète */
+  line-height: 1.4; /* Améliore la lisibilité */
+  margin-bottom: 15px; /* Espacement entre les paragraphes */
 }
 
 /* Liste des règles */
 .rules-container ul {
-  font-size: 1.1rem; /* Taille uniforme pour la liste */
+  font-size: 0.5rem; /* Taille réduite pour la liste */
   color: #f0f0f0;
   list-style-position: inside;
   padding-left: 20px;
-  margin-top: 12px;
-  text-align: left; /* Alignement à gauche pour les éléments de la liste */
+  margin-top: 10px;
 }
 
 .rules-container ul li {
-  margin-bottom: 12px; /* Espacement entre les éléments de la liste */
-  font-style: italic; /* Texte en italique pour les éléments de liste */
-  font-weight: 400; /* Poids normal */
-  line-height: 1.5; /* Espacement entre les lignes */
-  transition: transform 0.3s ease-in-out, color 0.3s ease-in-out; /* Ajout d'une transition fluide */
-  color: #f0f0f0; /* Couleur claire pour le texte */
-}
-
-.rules-container ul li:hover {
-  transform: scale(1.05); /* Effet d'agrandissement au survol */
-  color: #9b4d96; /* Change la couleur lors du survol */
+  margin-bottom: 8px; /* Espacement entre les éléments de la liste */
+  line-height: 1.4; /* Espacement des lignes */
+  font-size: 0.5rem; /* Taille réduite pour la liste */
 }
 
 /* Animation de néon */

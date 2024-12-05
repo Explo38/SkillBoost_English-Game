@@ -60,14 +60,14 @@
 }
 
 .top, .flip-card .top-flip {
-  background-color: #f7f7f7;
+  background-color: #5a1f5d;
   border-top-right-radius: .1em;
   border-top-left-radius: .1em;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .bottom, .flip-card .bottom-flip {
-  background-color: white;
+  background-color: #5a1f5d;
   display: flex;
   align-items: flex-end;
   border-bottom-right-radius: .1em;
