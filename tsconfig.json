@@ -7,6 +7,6 @@
     "moduleResolution": "node",
     "resolveJsonModule": true
   },
-  "include": ["src/**/*"],
+  "include": ["src/**/*", "svg.d.ts"],
   "exclude": ["node_modules"]
 }

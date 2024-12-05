@@ -1,44 +1,72 @@
 .toggle-switch {
-  position: relative;
-  display: inline-block;
-  width: 60px;
-  height: 34px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5%;
+  margin-bottom: -10%;
 }
 
-.toggle-switch input {
-  opacity: 0;
-  width: 0;
-  height: 0;
+.switch {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 250px; /* Largeur du toggle */
+  height: 50px; /* Hauteur du toggle */
+}
+
+input[type="checkbox"] {
+  display: none;
 }
 
 .slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 25px;
   background-color: #ccc;
-  transition: 0.4s;
-  border-radius: 34px;
+  transition: background-color 0.3s ease;
 }
 
-.slider:before {
+.slider-toggle {
   position: absolute;
-  content: "";
-  height: 26px;
-  width: 26px;
-  border-radius: 50%;
-  left: 4px;
-  bottom: 4px;
-  background-color: white;
-  transition: 0.4s;
-}
-
-input:checked + .slider {
+  width: 50%;
+  height: 100%;
   background-color: #4CAF50;
+  border-radius: 25px;
+  transition: transform 0.3s ease;
 }
 
-input:checked + .slider:before {
-  transform: translateX(26px);
+.left {
+  transform: translateX(0);
 }
+
+.right {
+  transform: translateX(100%);
+}
+
+.slider-text {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 18px;
+  font-weight: bold;
+  color: #fff;
+  transition: transform 0.3s ease, color 0.3s ease, font-size 0.3s ease;
+}
+
+/* Positionnement des textes */
+.slider-text.right {
+  right: 15%;
+}
+
+.slider-text.left {
+  left: 15%;
+}
+
+/* Quand un texte est actif */
+.slider-text.active {
+  color: #000; /* Couleur du texte actif */
+  font-size: 22px; /* Taille plus grande pour l'effet d'accentuation */
+  transform: translateY(-50%) scale(1.2); /* Agrandissement léger du texte actif */
+}
+

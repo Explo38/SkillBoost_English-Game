@@ -1,10 +1,17 @@
 /* App.css */
-html, body {
+html{
     margin: 0;
     padding: 0;
     height: 100%;
   }
-  
+ 
+  body {
+    background-image: url('./assets/svg/FondDesktop.svg');
+    background-size: cover; /* Pour que l'image de fond couvre tout l'écran */
+
+  }
+
+
   .app-container {
     display: flex;
     justify-content: center;

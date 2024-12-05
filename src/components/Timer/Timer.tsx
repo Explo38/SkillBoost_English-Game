@@ -2,57 +2,52 @@ import React, { useEffect, useState } from 'react';
 import './Timer.css';
 
 const Timer: React.FC = () => {
-  const [timeElapsed, setTimeElapsed] = useState(0); // Temps écoulé en secondes
-  const [startTime, setStartTime] = useState<number | null>(null); // Temps de début du chronomètre
-  const [isRunning, setIsRunning] = useState(false); // Indique si le chronomètre est en cours
-  const [lastStopTime, setLastStopTime] = useState(0); // Temps où le chronomètre a été arrêté pour la reprise
-  const [isStarted, setIsStarted] = useState(false); // Indique si le timer a été démarré (pour gérer l'affichage des boutons)
+  const [timeElapsed, setTimeElapsed] = useState(0);
+  const [startTime, setStartTime] = useState<number | null>(null);
+  const [isRunning, setIsRunning] = useState(false);
+  const [lastStopTime, setLastStopTime] = useState(0);
+  const [isStarted, setIsStarted] = useState(false);
 
-  // Démarrer le chronomètre
   const startTimer = () => {
     if (!isRunning) {
       const currentTime = Date.now();
       if (startTime === null) {
-        setStartTime(currentTime); // Si le chronomètre est démarré pour la première fois
+        setStartTime(currentTime);
       } else {
-        // Reprendre depuis où ça s'est arrêté
-        setStartTime(currentTime - (lastStopTime * 1000)); // Calculer le bon temps de départ en fonction du temps déjà écoulé
+        setStartTime(currentTime - (lastStopTime * 1000));
       }
-      setIsRunning(true); // Le chronomètre est en cours
-      setIsStarted(true); // Le chronomètre a été démarré
+      setIsRunning(true);
+      setIsStarted(true);
     }
   };
 
-  // Arrêter le chronomètre
   const stopTimer = () => {
-    setIsRunning(false); // Le chronomètre s'arrête
+    setIsRunning(false);
     const stopTime = Date.now();
-    setLastStopTime(Math.floor((stopTime - (startTime || stopTime)) / 1000)); // Mémoriser le temps au moment de l'arrêt
+    setLastStopTime(Math.floor((stopTime - (startTime || stopTime)) / 1000));
   };
 
-  // Redémarrer le chronomètre
   const restartTimer = () => {
-    setTimeElapsed(0); // Remise à zéro du chrono
-    setLastStopTime(0); // Réinitialisation du temps de pause
-    setStartTime(null); // Réinitialisation du startTime
-    setIsRunning(false); // Le chronomètre est arrêté
-    setIsStarted(false); // On revient à l'état initial où seul le bouton "Start" est affiché
+    setTimeElapsed(0);
+    setLastStopTime(0);
+    setStartTime(null);
+    setIsRunning(false);
+    setIsStarted(false);
   };
 
   useEffect(() => {
-    // Si le chronomètre a commencé, met à jour le temps écoulé toutes les 250ms
     if (startTime !== null && isRunning) {
       const interval = setInterval(() => {
         const currentTime = Date.now();
-        setTimeElapsed(Math.floor((currentTime - startTime) / 1000)); // Calcul du temps écoulé en secondes
+        setTimeElapsed(Math.floor((currentTime - startTime) / 1000));
       }, 250);
 
-      return () => clearInterval(interval); // Nettoyage de l'intervalle quand le composant se démonte
+      return () => clearInterval(interval);
     }
   }, [startTime, isRunning]);
 
   useEffect(() => {
-    flipAllCards(timeElapsed); // Mettre à jour l'affichage de l'horloge à chaque changement de temps
+    flipAllCards(timeElapsed);
   }, [timeElapsed]);
 
   const flipAllCards = (time: number) => {
@@ -94,55 +89,52 @@ const Timer: React.FC = () => {
   };
 
   return (
-<div className="container">
-  <div className="timer-segment">
-    <div className="timer-time">
-      <div className="container-segment">
-        <div className="segment-title">Minutes</div>
-        <div className="segment">
-          <div className="flip-card" data-minutes-tens>
-            <div className="top">0</div>
-            <div className="bottom">0</div>
+    <div className="timer-container">
+      <div className="timer-segment">
+        <div className="timer-time">
+          <div className="container-segment">
+            <div className="segment-title">Minutes</div>
+            <div className="segment">
+              <div className="flip-card" data-minutes-tens>
+                <div className="top">0</div>
+                <div className="bottom">0</div>
+              </div>
+              <div className="flip-card" data-minutes-ones>
+                <div className="top">0</div>
+                <div className="bottom">0</div>
+              </div>
+            </div>
           </div>
-          <div className="flip-card" data-minutes-ones>
-            <div className="top">0</div>
-            <div className="bottom">0</div>
+          <div className="container-segment">
+            <div className="segment-title">Seconds</div>
+            <div className="segment">
+              <div className="flip-card" data-seconds-tens>
+                <div className="top">0</div>
+                <div className="bottom">0</div>
+              </div>
+              <div className="flip-card" data-seconds-ones>
+                <div className="top">0</div>
+                <div className="bottom">0</div>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-      <div className="container-segment">
-        <div className="segment-title">Seconds</div>
-        <div className="segment">
-          <div className="flip-card" data-seconds-tens>
-            <div className="top">0</div>
-            <div className="bottom">0</div>
-          </div>
-          <div className="flip-card" data-seconds-ones>
-            <div className="top">0</div>
-            <div className="bottom">0</div>
-          </div>
+        <div className="buttons">
+          {!isStarted ? (
+            <button onClick={startTimer}>Start Timer</button>
+          ) : (
+            <>
+              <button onClick={stopTimer} disabled={!isRunning}>
+                Stop Timer
+              </button>
+              <button onClick={restartTimer}>
+                Restart Timer
+              </button>
+            </>
+          )}
         </div>
       </div>
     </div>
-    {/* Séparation des boutons dans un nouveau conteneur */}
-    <div className="buttons">
-      {!isStarted ? (
-        <button onClick={startTimer}>Start Timer</button>
-      ) : (
-        <>
-          <button onClick={stopTimer} disabled={!isRunning}>
-            Stop Timer
-          </button>
-          <button onClick={restartTimer}>
-            Restart Timer
-          </button>
-        </>
-      )}
-    </div>
-  </div>
-</div>
-
-
   );
 };
 

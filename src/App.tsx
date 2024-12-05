@@ -1,4 +1,7 @@
+// App.tsx
 import React, { useState } from 'react';
+import './App.css';
+
 import Timer from './components/Timer/Timer';
 import Rules from './components/Rules/Rules';
 import ToggleSwitch from './components/ToggleSwitch/ToggleSwitch';
@@ -8,6 +11,8 @@ const App: React.FC = () => {
 
   return (
     <div>
+    
+      
       <ToggleSwitch onChange={(checked) => setShowTimer(checked)} />
       
       {showTimer ? <Timer /> : <Rules />}
