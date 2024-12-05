@@ -59,7 +59,7 @@
 .rules-container {
   text-align: left;
   width: 90%; /* Largeur pour mobile */
-  max-height: 60vh;
+  max-height: 30vh;
   padding: 15px; /* Padding pour mobile */
   border: 3px solid #9b4d96;
   border-radius: 12px;
