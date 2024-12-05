@@ -24,6 +24,8 @@
 
 .second-image {
   animation-delay: 1s; /* Retard de 1 seconde pour la deuxième image */
+  width: 380px;  /* Réduction de la taille pour les images */
+  height: 380px;
 }
 
 .third-image {
