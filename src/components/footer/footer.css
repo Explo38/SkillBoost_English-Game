@@ -23,3 +23,59 @@
     margin: 0;
   }
   
+  /* Pop-up - Overlay */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  /* Contenu de la pop-up */
+  .modal {
+    background-color: #5a1f5d;
+    border-radius: 12px;
+    padding: 20px;
+    max-width: 80%;
+    width: 400px;
+    position: relative;
+    text-align: center;
+    box-shadow: 0 0 15px 5px rgba(138, 43, 226, 0.8);
+  }
+  
+  /* Bouton de fermeture de la pop-up */
+  .close-btn {
+    position: absolute;
+    top: -10px;
+    right: -155px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+  }
+  
+  .close-btn:hover {
+    color: #96359c;
+  }
+  
+  /* Image dans la pop-up */
+  .modal-image {
+    max-width: 100%;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+  }
+  
+  /* Texte dans la pop-up */
+  .modal-text {
+    font-size: 1rem;
+    color: #e6e6e6;
+    line-height: 1.5;
+  }
