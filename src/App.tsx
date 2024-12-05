@@ -1,14 +1,16 @@
-import React from 'react';
-import Timer from './components/Timer/timmer';
-import Rules from './components/Rules/ruless';
+import React, { useState } from 'react';
+import Timer from './components/Timer/Timer';
+import Rules from './components/Rules/Rules';
 import ToggleSwitch from './components/ToggleSwitch/ToggleSwitch';
 
 const App: React.FC = () => {
+  const [showTimer, setShowTimer] = useState(true); // L'état pour gérer quel composant afficher
+
   return (
     <div>
-      <Timer />
-      <Rules />
-      <ToggleSwitch />
+      <ToggleSwitch onChange={(checked) => setShowTimer(checked)} />
+      
+      {showTimer ? <Timer /> : <Rules />}
     </div>
   );
 }
