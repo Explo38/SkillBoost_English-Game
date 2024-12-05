@@ -1,43 +1,48 @@
-/* anim.css */
-.svg-container {
+.animation-wrapper {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
+  justify-content: center;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 100vw;
-  height: 100vh;
+  transition: opacity 1s ease-out;
+  z-index: 10;  /* Assure que les images restent devant le reste du contenu */
 }
 
-.svg-item {
-  position: absolute;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-}
-
-.svg-item-1 {
-  bottom: 0;
-  left: 0;
-  width: 400px;
+.logo,
+.second-image,
+.third-image {
+  width: 400px;  /* Réduction de la taille pour les images */
   height: 400px;
-  background-image: url('/assets/1.svg'); /* Change with the correct path */
+  opacity: 0;
+  transform: scale(0);
+  margin: -190px 0;  /* Réduit l'espace entre les images (ajustable) */
+  animation: fadeInScale 5s forwards;
 }
 
-.svg-item-2 {
-  top: 0;
-  right: 0;
-  width: 400px;
-  height: 400px;
-  background-image: url('/assets/2.svg'); /* Change with the correct path */
+.second-image {
+  animation-delay: 1s; /* Retard de 1 seconde pour la deuxième image */
 }
 
-.svg-item-3 {
-  bottom: 0;
-  right: 0;
-  width: 400px;
-  height: 400px;
-  background-image: url('/assets/3.svg'); /* Change with the correct path */
+.third-image {
+  animation-delay: 2s; /* Retard de 2 secondes pour la troisième image */
+}
+
+@keyframes fadeInScale {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.fade-out {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 5s ease-out 5s;  /* Délai avant la disparition */
 }

@@ -1,56 +1,112 @@
+/* Keyframe pour ajuster le layout des règles */
+@keyframes adjustRulesLayout {
+  0% {
+    /* Mobile (par défaut) */
+    .rules-container {
+      width: 90%; /* Plus large sur mobile */
+      max-height: 60vh;
+      padding: 15px; /* Moins de padding */
+      margin-top: 3000px;
+    }
+    .rules-wrapper {
+      margin-top: -30px;
+    }
+    .rules-container h1 {
+      font-size: 1rem; /* Plus petit pour mobile */
+    }
+    .rules-container h2 {
+      font-size: 0.8rem; /* Plus petit pour mobile */
+    }
+    .rules-container p {
+      font-size: 0.5rem; /* Plus petit pour mobile */
+    }
+    .rules-container ul {
+      font-size: 0.5rem; /* Taille de texte réduite pour mobile */
+    }
+    .rules-container ul li {
+      font-size: 0.5rem; /* Taille de texte réduite pour mobile */
+    }
+  }
+  100% {
+    /* PC (taille plus grande) */
+    .rules-container {
+      width: 80%; /* Moins large sur PC */
+      max-height: 60vh;
+      padding: 30px; /* Plus de padding */
+    }
+    .rules-wrapper {
+      margin-top: 65%;
+    }
+    .rules-container h1 {
+      font-size: 1.5rem; /* Plus grand pour PC */
+    }
+    .rules-container h2 {
+      font-size: 1rem; /* Taille normale pour les sous-titres sur PC */
+    }
+    .rules-container p {
+      font-size: 0.9rem; /* Taille plus grande pour le texte des règles */
+    }
+    .rules-container ul {
+      font-size: 0.9rem; /* Taille de texte augmentée pour PC */
+    }
+    .rules-container ul li {
+      font-size: 0.9rem; /* Taille de texte augmentée pour les éléments de la liste */
+    }
+  }
+}
+
 /* Container des règles */
 .rules-container {
-  text-align: left; /* Aligne tout le texte à gauche */
-  width: 80%; 
-  max-height: 60vh; 
-  padding: 30px;
-  border: 3px solid #9b4d96; 
+  text-align: left;
+  width: 90%; /* Largeur pour mobile */
+  max-height: 60vh;
+  padding: 15px; /* Padding pour mobile */
+  border: 3px solid #9b4d96;
   border-radius: 12px;
   background-color: #5a1f5d;
   box-shadow: 0 0 15px 5px rgba(138, 43, 226, 0.8);
-  overflow-y: auto; 
-  animation: neonGlow 1.5s ease-in-out infinite;
-  margin-top: 15%;
+  overflow-y: auto;
+  margin-top: -40%;
+  animation: adjustRulesLayout 1s ease-out; /* Appliquer l'animation */
 }
 
-/* Wrapper autour de la rules-container pour le centrage */
+/* Wrapper autour de la rules-container */
 .rules-wrapper {
   display: flex;
-  justify-content: center; /* Centre horizontalement */
-  align-items: center; /* Centre verticalement */
-  height: 100vh; /* Remplir toute la hauteur de la vue */
-  padding: 20px;
-  overflow: hidden; /* Empêche le scroll global */
+  justify-content: center;
+  align-items: center;
+  margin-top: 50%;
+  animation: adjustRulesLayout 1s ease-out;
 }
 
 /* Titre principal */
 .rules-container h1 {
-  font-size: 1rem; /* Taille réduite du titre */
+  font-size: 1rem; /* Taille pour mobile */
   color: #e6e6e6;
   margin-bottom: 25px;
-  font-weight: bold; /* Mettre en gras */
+  font-weight: bold;
   text-transform: uppercase;
 }
 
 /* Sous-titres */
 .rules-container h2 {
-  font-size: 0.8rem; /* Taille réduite pour les sous-titres */
+  font-size: 0.8rem; /* Taille réduite pour mobile */
   color: #f1f1f1;
   margin-top: 10px;
   font-weight: normal;
 }
 
-/* Texte des règles (paragraphes) */
+/* Texte des règles */
 .rules-container p {
-  font-size: 0.5rem; /* Réduit la taille du texte */
+  font-size: 0.5rem; /* Réduit pour mobile */
   color: #dcdcdc;
-  line-height: 1.4; /* Améliore la lisibilité */
-  margin-bottom: 15px; /* Espacement entre les paragraphes */
+  line-height: 1.4;
+  margin-bottom: 15px;
 }
 
 /* Liste des règles */
 .rules-container ul {
-  font-size: 0.5rem; /* Taille réduite pour la liste */
+  font-size: 0.5rem; /* Réduit pour mobile */
   color: #f0f0f0;
   list-style-position: inside;
   padding-left: 20px;
@@ -58,9 +114,9 @@
 }
 
 .rules-container ul li {
-  margin-bottom: 8px; /* Espacement entre les éléments de la liste */
-  line-height: 1.4; /* Espacement des lignes */
-  font-size: 0.5rem; /* Taille réduite pour la liste */
+  margin-bottom: 8px;
+  line-height: 1.4;
+  font-size: 0.5rem; /* Taille réduite pour mobile */
 }
 
 /* Animation de néon */

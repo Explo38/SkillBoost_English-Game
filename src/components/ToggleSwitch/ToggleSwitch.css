@@ -1,41 +1,102 @@
-.toggle-switch {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 5%;
-  margin-bottom: -10%;
+/* Keyframe pour les ajustements de format */
+@keyframes adjustLayout {
+  0% {
+    /* Par défaut pour mobile */
+    .toggle-switch {
+      margin-top: 5%;
+      margin-bottom: -15%;
+    }
+    .switch {
+      width: 200px; /* Largeur pour mobile */
+      height: 45px; /* Hauteur pour mobile */
+    }
+    .slider-text {
+      font-size: 14px; /* Taille du texte pour mobile */
+    }
+  }
+  100% {
+    /* Exemple de taille pour les PC (à ajuster à ton goût) */
+    .toggle-switch {
+      margin-top: 10%;
+      margin-bottom: -5%;
+    }
+    .switch {
+      width: 300px; /* Largeur pour PC */
+      height: 60px; /* Hauteur pour PC */
+    }
+    .slider-text {
+      font-size: 18px; /* Taille du texte pour PC */
+    }
+  }
 }
 
+/* Animation pour le texte du toggle switch */
+@keyframes textSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Animation du toggle switch (effet d'apparition) */
+@keyframes toggleSlideIn {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Toggle switch */
+.toggle-switch {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  animation: toggleSlideIn 1s ease-out, adjustLayout 1s ease-out; /* On applique l'animation d'ajustement */
+}
+
+/* Switch */
 .switch {
   position: relative;
   display: flex;
   align-items: center;
-  width: 250px; /* Largeur du toggle */
-  height: 50px; /* Hauteur du toggle */
+  width: 200px; /* Largeur mobile par défaut */
+  height: 45px; /* Hauteur mobile par défaut */
+  animation: toggleSlideIn 1s ease-out;
 }
 
+/* Cache le checkbox */
 input[type="checkbox"] {
   display: none;
 }
 
+/* Slider (fond) */
 .slider {
   position: relative;
   width: 100%;
   height: 100%;
   border-radius: 25px;
-  background-color: #ccc;
+  background-color: #96359c;
   transition: background-color 0.3s ease;
 }
 
+/* Le curseur (toggle button) */
 .slider-toggle {
   position: absolute;
   width: 50%;
   height: 100%;
-  background-color: #4CAF50;
+  background-color: #5a1f5d;
   border-radius: 25px;
   transition: transform 0.3s ease;
 }
 
+/* Positions pour le toggle à gauche ou à droite */
 .left {
   transform: translateX(0);
 }
@@ -44,14 +105,16 @@ input[type="checkbox"] {
   transform: translateX(100%);
 }
 
+/* Texte à l'intérieur du slider */
 .slider-text {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  font-size: 18px;
+  font-size: 14px; /* Taille mobile par défaut */
   font-weight: bold;
   color: #fff;
   transition: transform 0.3s ease, color 0.3s ease, font-size 0.3s ease;
+  animation: textSlideIn 1s ease-out;
 }
 
 /* Positionnement des textes */
@@ -65,8 +128,7 @@ input[type="checkbox"] {
 
 /* Quand un texte est actif */
 .slider-text.active {
-  color: #000; /* Couleur du texte actif */
-  font-size: 22px; /* Taille plus grande pour l'effet d'accentuation */
+  color: white; /* Couleur du texte actif */
+  font-size: 16px; /* Taille plus grande pour l'effet d'accentuation */
   transform: translateY(-50%) scale(1.2); /* Agrandissement léger du texte actif */
 }
-
